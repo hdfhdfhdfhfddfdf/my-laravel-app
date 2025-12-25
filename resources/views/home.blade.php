@@ -64,7 +64,7 @@
 
                 <nav class="flex items-center gap-4">
                     <a href="{{ route('home') }}" class="nav-pill text-blue-700">Home</a>
-                    <a href="{{ route('welcome') }}" class="nav-pill text-gray-700">Events</a>
+                    <a href="{{ route('eventlist') }}" class="nav-pill text-gray-700">Events</a>
                     @auth
                         <a href="{{ route('my-bookings') }}" class="nav-pill text-gray-700">My Tickets</a>
                         <form method="POST" action="{{ route('logout') }}" class="inline">@csrf<button type="submit" class="nav-pill text-red-500 font-semibold">Logout</button></form>
@@ -100,7 +100,7 @@
                         <p class="text-center text-white/90 mt-6 text-lg md:text-xl">Discover and book tickets for exciting events happening at International Islamic University Malaysia</p>
 
                         <div class="mt-12 flex justify-center gap-6">
-                            <a href="{{ route('welcome') }}" class="btn-primary">Browse Events</a>
+                            <a href="{{ route('eventlist') }}" class="btn-primary">Browse Events</a>
                             <a href="{{ route('login') }}" class="btn-outline">Login</a>
                         </div>
                     </div>

@@ -14,7 +14,7 @@ public function index()
 {
     // This fetches the data!
     $events = Event::all(); 
-    return view('welcome', compact('events'));
+    return view('eventlist', compact('events'));
 }
     // 1. Show the form to create an event
     public function create()

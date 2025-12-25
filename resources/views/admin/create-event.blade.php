@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <div class="flex items-center space-x-6">
-                    <a href="{{ route('dashboard') }}" class="text-gray-500 hover:text-blue-900 font-medium transition">Dashboard</a>
+                    <a href="{{ route('eventlist') }}" class="text-gray-500 hover:text-blue-900 font-medium transition">Dashboard</a>
                     <form method="POST" action="{{ route('logout') }}" class="inline">
                         @csrf
                         <button type="submit" class="text-red-500 font-medium hover:text-red-700 transition">Logout</button>
@@ -39,7 +39,7 @@
                 <h1 class="text-3xl font-bold text-gray-900">Create New Event</h1>
                 <p class="text-gray-500 mt-1">Fill in the details below to publish a new event.</p>
             </div>
-            <a href="{{ route('welcome') }}" class="bg-white border border-gray-200 text-gray-600 hover:text-gray-900 px-4 py-2 rounded-xl font-medium shadow-sm transition">
+            <a href="{{ route('eventlist') }}" class="bg-white border border-gray-200 text-gray-600 hover:text-gray-900 px-4 py-2 rounded-xl font-medium shadow-sm transition">
                 Cancel
             </a>
         </div>

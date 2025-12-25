@@ -9,7 +9,10 @@ Route::get('/', function () {
     // modified/written by eimaan
     return view('home');
 })->name('home');
-Route::get('/welcome', [EventController::class, 'index'])->name('welcome');
+Route::get('/eventlist', [EventController::class, 'index'])->name('eventlist');
+Route::get('/welcome', function () {
+    return redirect()->route('eventlist');
+});
 
 // Route to show the form
 Route::get('/admin/create-event', [EventController::class, 'create'])
@@ -39,9 +42,9 @@ Route::post('/checkout/{id}', [EventController::class, 'processBooking'])->name(
 // Show the success page
 Route::get('/booking/success/{id}', [EventController::class, 'success'])->name('events.success');
 
-Route::get('/dashboard', [EventController::class, 'index'])
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+Route::get('/dashboard', function () {
+    return redirect()->route('eventlist');
+})->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
