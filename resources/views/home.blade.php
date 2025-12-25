@@ -27,7 +27,9 @@
         .badge-pill{display:inline-flex;align-items:center;gap:.6rem;padding:.5rem 1.2rem;border-radius:9999px;background:rgba(255,255,255,0.08);color:#fff;font-weight:600;animation: floaty 3s ease-in-out infinite;}
         .btn-primary{background:#fff;color:var(--ii-blue-900);padding:.84rem 1.8rem;border-radius:9999px;font-weight:700;box-shadow:0 10px 40px rgba(2,6,23,0.28);display:inline-flex;align-items:center;gap:.6rem}
         .btn-outline{background:transparent;border:1px solid rgba(255,255,255,0.25);color:#fff;padding:.72rem 1.6rem;border-radius:9999px;font-weight:600;backdrop-filter: blur(4px);}
-        @keyframes floaty {0% {transform: translateY(0);} 50% {transform: translateY(-10px);} 100% {transform: translateY(0);} }
+        .nav-pill{border:1.25px solid #c3d0e8;border-radius:9999px;padding:.5rem 1.1rem;display:inline-flex;align-items:center;font-weight:700;color:#0f172a;box-shadow:0 6px 18px rgba(12,22,47,0.06);background:rgba(255,255,255,0.7);transition:transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;}
+        .nav-pill:hover{background:#f1f5fb;box-shadow:0 10px 24px rgba(12,22,47,0.12);transform:translateY(-1px);}
+        @keyframes floaty {0% {transform: translateY(0);} 50% {transform: translateY(-12px);} 100% {transform: translateY(0);} }
         /* large blurred decoration behind the hero */
         .hero-deco{position:absolute;left:50%;transform:translateX(-50%);top:6.25rem;width:calc(100% - 4rem);max-width:1250px;height:300px;border-radius:56px;background:linear-gradient(110deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));filter:blur(26px);opacity:.12;pointer-events:none}
 
@@ -60,12 +62,12 @@
                     </div>
                 </div>
 
-                <nav class="flex items-center gap-6">
-                    <a href="{{ route('home') }}" class="text-blue-700 font-medium">Home</a>
-                    <a href="{{ route('welcome') }}" class="text-gray-600">Events</a>
+                <nav class="flex items-center gap-4">
+                    <a href="{{ route('home') }}" class="nav-pill text-blue-700">Home</a>
+                    <a href="{{ route('welcome') }}" class="nav-pill text-gray-700">Events</a>
                     @auth
-                        <a href="{{ route('my-bookings') }}" class="text-gray-600">My Tickets</a>
-                        <form method="POST" action="{{ route('logout') }}" class="inline">@csrf<button type="submit" class="text-red-500 font-medium ml-4">Logout</button></form>
+                        <a href="{{ route('my-bookings') }}" class="nav-pill text-gray-700">My Tickets</a>
+                        <form method="POST" action="{{ route('logout') }}" class="inline">@csrf<button type="submit" class="nav-pill text-red-500 font-semibold">Logout</button></form>
                     @else
                         <a href="{{ route('login') }}" class="bg-white text-gray-900 border border-gray-300 px-4 py-2 rounded-full font-medium hover:bg-gray-50">Login</a>
                     @endauth
