@@ -4,9 +4,11 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
 
+// modified/written by eimaan
 Route::get('/', function () {
+    // modified/written by eimaan
     return view('home');
-});
+})->name('home');
 Route::get('/welcome', [EventController::class, 'index'])->name('welcome');
 
 // Route to show the form
