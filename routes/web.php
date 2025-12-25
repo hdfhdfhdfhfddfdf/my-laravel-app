@@ -7,9 +7,7 @@ use App\Http\Controllers\EventController;
 Route::get('/', function () {
     return view('home');
 });
-Route::get('/about', function () {
-    return view('welcome');
-});
+Route::get('/welcome', [EventController::class, 'index'])->name('welcome');
 
 // Route to show the form
 Route::get('/admin/create-event', [EventController::class, 'create'])
@@ -28,7 +26,16 @@ Route::post('/admin/create-event', [EventController::class, 'store'])
 
     Route::post('/book/{id}', [EventController::class, 'book'])->name('events.book');
 
+    Route::get('/event/{id}', [EventController::class, 'show'])->name('events.show');
 
+    // Show the checkout form
+Route::get('/checkout/{id}', [EventController::class, 'checkout'])->name('events.checkout');
+
+// Process the payment/booking
+Route::post('/checkout/{id}', [EventController::class, 'processBooking'])->name('events.process');
+
+// Show the success page
+Route::get('/booking/success/{id}', [EventController::class, 'success'])->name('events.success');
 
 Route::get('/dashboard', [EventController::class, 'index'])
     ->middleware(['auth', 'verified'])

@@ -9,13 +9,15 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+ public function up(): void
 {
     Schema::create('bookings', function (Blueprint $table) {
         $table->id();
-        $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Who bought it
-        $table->foreignId('event_id')->constrained()->onDelete('cascade'); // Which event
-        $table->integer('quantity'); // How many tickets
+        $table->foreignId('user_id')->constrained()->onDelete('cascade');
+        $table->foreignId('event_id')->constrained()->onDelete('cascade');
+        $table->string('matric_number')->nullable(); // Added this
+        $table->integer('quantity');
+        $table->decimal('total_price', 10, 2); // Added to store exact price paid
         $table->timestamps();
     });
 }
