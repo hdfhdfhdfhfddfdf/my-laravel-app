@@ -76,4 +76,14 @@ public function index()
 
     return back()->with('success', 'Ticket purchased successfully!');
 }
+
+    // 4. Show the user's purchased tickets
+public function myBookings()
+{
+    // Get bookings for the currently logged-in user
+    // and "load" the event details (so we can see the Event Title, not just the ID)
+    $bookings = Booking::where('user_id', Auth::id())->with('event')->get();
+
+    return view('my-bookings', compact('bookings'));
+}
 }

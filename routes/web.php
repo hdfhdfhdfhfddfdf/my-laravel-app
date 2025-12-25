@@ -16,6 +16,11 @@ Route::get('/admin/create-event', [EventController::class, 'create'])
     ->middleware(['auth', 'verified'])
     ->name('events.create');
 
+//route to ticket booking
+Route::get('/my-bookings', [EventController::class, 'myBookings'])
+    ->middleware(['auth', 'verified'])
+    ->name('my-bookings');
+
 // Route to save the data
 Route::post('/admin/create-event', [EventController::class, 'store'])
     ->middleware(['auth', 'verified'])
